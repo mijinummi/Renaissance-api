@@ -44,6 +44,8 @@ import { Leaderboard } from './leaderboard/entities/leaderboard.entity';
 import { CircuitBreakerGuard } from './auth/guards/circuit-breaker.guard';
 import { RateLimitModule } from './rate-limit/rate-limit.module';
 import { EventListenerModule } from './common/events/event-listener.module';
+import { BetSettlementModule } from './bet-settlement/bet-settlement.module';
+import { OddsModule } from './odds/odds.module';
 
 
 @Module({
@@ -92,6 +94,11 @@ import { EventListenerModule } from './common/events/event-listener.module';
     ]),
     SpinGameModule,
     RateLimitModule,
+    AuthModule,
+    MatchesModule,
+    BetsModule,
+    BetSettlementModule,
+    OddsModule,
     StakingModule,
     LeaderboardModule,
     FreeBetVouchersModule,

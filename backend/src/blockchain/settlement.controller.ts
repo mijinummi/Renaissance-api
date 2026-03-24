@@ -77,10 +77,12 @@ export class SettlementController {
     description: 'Reconciliation completed',
   })
   async reconcile(): Promise<{ message: string; processed: number }> {
+    const pendingSettlements =
+      await this.settlementService.getPendingSettlements();
     await this.settlementService.reconcile();
     return {
       message: 'Reconciliation completed successfully',
-      processed: 0, // This would be populated from actual reconciliation results
+      processed: pendingSettlements.length,
     };
   }
 
@@ -96,8 +98,7 @@ export class SettlementController {
     description: 'List all settlements awaiting blockchain confirmation.',
   })
   async getPendingSettlements(): Promise<Settlement[]> {
-    // This would need to be added to the service
-    return [];
+    return this.settlementService.getPendingSettlements();
   }
 
   /**
@@ -115,7 +116,6 @@ export class SettlementController {
   async getSettlement(
     @Param('id', ParseUUIDPipe) id: string,
   ): Promise<Settlement | null> {
-    // This would need to be added to the service
-    return null;
+    return this.settlementService.getSettlementById(id);
   }
 }
