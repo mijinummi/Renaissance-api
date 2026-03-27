@@ -58,8 +58,10 @@ import { UserAchievement } from './gamification/entities/user-achievement.entity
 import { NFTListing } from './nft/entities/nft-listing.entity';
 import { NFTOffer } from './nft/entities/nft-offer.entity';
 import { NFTPlayerCard } from './nft/entities/nft.entity';
+import { Team } from './teams/entities/team.entity';
 import { WebhookModule } from './webhooks/webhook.module';
 import { FraudModule } from './fraud/fraud.module';
+import { TeamsModule } from './teams/teams.module';
 
 // Custom role-based guard
 import { RateLimitGuard } from './common/guards/rate-limit.guard';
@@ -112,6 +114,7 @@ import { RateLimitGuard } from './common/guards/rate-limit.guard';
       NFTListing,
       NFTOffer,
       NFTPlayerCard,
+      Team,
     ]),
     SpinGameModule,
     RateLimitModule,
@@ -141,6 +144,7 @@ import { RateLimitGuard } from './common/guards/rate-limit.guard';
     GamificationModule,
     WebhookModule,
     FraudModule,
+    TeamsModule,
   ],
   providers: [
     {
